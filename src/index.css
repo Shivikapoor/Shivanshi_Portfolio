@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Dark theme (default) ---- */
+  --c-bg: 11 14 20;
+  --c-bg-deep: 7 9 17;
+  --c-bg-elevated: 18 22 31;
+  --c-border: 23 27 39;
+  --c-border-strong: 35 40 56;
+  --c-text: 231 233 238;
+  --c-text-soft: 199 204 216;
+  --c-text-muted: 138 147 166;
+  --c-text-faint: 90 100 120;
+  --c-text-faint2: 58 66 87;
+
+  --c-accent: 110 231 192;
+  --c-accent-100: 223 251 241;
+  --c-accent-soft: 159 243 218;
+  --c-accent-mid: 133 234 203;
+  --c-accent-strong: 63 199 158;
+  --c-accent-deep: 39 156 123;
+
+  --c-accent2: 240 180 41;
+  --c-accent2-soft: 245 200 89;
+
+  --c-wash: 11 14 20; /* equals bg -> invisible wash in dark mode */
+
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-accent: 'Playfair Display', serif;
+  --font-accent-style: italic;
+}
+
+/* ---- Light theme: warm editorial palette per the light-theme spec ---- */
+[data-theme='light'] {
+  color-scheme: light;
+
+  --c-bg: 244 241 233; /* paper #f4f1e9 */
+  --c-bg-deep: 234 229 216;
+  --c-bg-elevated: 231 228 218; /* soft beige panel #e7e4da */
+  --c-border: 225 221 209; /* #e1ddd1 */
+  --c-border-strong: 217 214 204; /* #d9d6cc */
+  --c-text: 16 32 29; /* dark ink #10201d */
+  --c-text-soft: 40 56 51;
+  --c-text-muted: 105 113 107; /* #69716b */
+  --c-text-faint: 140 145 135;
+  --c-text-faint2: 170 172 160;
+
+  --c-accent: 237 119 87; /* coral highlight #ed7757 */
+  --c-accent-100: 250 224 213;
+  --c-accent-soft: 242 182 156; /* peach accent #f2b69c */
+  --c-accent-mid: 240 150 120;
+  --c-accent-strong: 214 96 66;
+  --c-accent-deep: 180 76 50;
+
+  --c-accent2: 237 119 87; /* coral, used for the Resume CTA band */
+  --c-accent2-soft: 242 182 156;
+
+  --c-wash: 169 215 200; /* mint green #a9d7c8 -> hero / skills section wash */
+
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  font-weight: 500;
+  background-color: rgb(var(--c-bg));
+  color: rgb(var(--c-text));
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.065em;
+  line-height: 0.96;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font-family: var(--font-body), sans-serif;
+}
+
+.editorial-heading {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.07em;
+  line-height: 0.95;
+}
+
+.body-copy {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgb(var(--c-text-muted));
+}
+
+.metadata {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.02em;
+}
+
+/* Respect reduced motion everywhere */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible, on-brand focus states for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid rgb(var(--c-accent));
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgb(var(--c-accent));
+  color: rgb(var(--c-bg));
+}
+
+/* Eyebrow / code-comment style label used as the site's structural signature */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: rgb(var(--c-accent));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.eyebrow::before {
+  content: '//';
+  color: rgb(var(--c-text-faint));
+}
+
+.section {
+  padding-top: clamp(4rem, 9vw, 7rem);
+  padding-bottom: clamp(4rem, 9vw, 7rem);
+}
+
+.container-content {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* Custom scrollbar, kept subtle */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--c-bg));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--c-border-strong));
+  border-radius: 8px;
+}
+
+/* Placeholder marker used across the site for unverified/missing data.
+   Deliberately NOT theme-reactive (fixed amber) — it's a semantic warning
+   flag, not a brand accent, so it should read the same in both themes. */
+.placeholder-tag {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #f0b429;
+  background: rgba(240, 180, 41, 0.1);
+  border: 1px solid rgba(240, 180, 41, 0.35);
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Italic serif accent word used for editorial emphasis. */
+.font-accent-italic {
+  font-family: var(--font-accent), serif;
+  font-style: var(--font-accent-style, normal);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
