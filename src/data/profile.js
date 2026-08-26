@@ -20,9 +20,9 @@ export const profile = {
 // underlying URLs were not present in the extracted resume text, so the
 // href values below are placeholders. Replace with the real profile URLs.
 export const links = {
-  github: { url: 'https://github.com/', isPlaceholder: true },
-  linkedin: { url: 'https://linkedin.com/', isPlaceholder: true },
-  email: `mailto:kapoorshivanshi10@gmail.com`,
+  github: { url: 'https://github.com/Shivikapoor', isPlaceholder: true },
+  linkedin: { url: 'https://www.linkedin.com/in/shivanshikapoor/', isPlaceholder: true },
+  email: `https://mail.google.com/mail/?view=cm&fs=1&to=kapoorshivanshi10@gmail.com`,
   // This is the actual resume PDF that was supplied — it's a real, working
   // link, not a placeholder.
   resumePdf: { url: '/assets/Shivanshi_Kapoor_Resume.pdf', isPlaceholder: false },

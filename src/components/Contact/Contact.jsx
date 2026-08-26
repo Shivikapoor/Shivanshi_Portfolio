@@ -41,6 +41,8 @@ export default function Contact() {
             <Magnet>
               <a
                 href={links.email}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-mint-500 text-ink-900 font-medium text-sm rounded-full px-6 py-3.5 hover:bg-mint-300 transition-colors"
               >
                 Email Me <HiOutlineArrowUpRight aria-hidden="true" />

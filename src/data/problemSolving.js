@@ -4,8 +4,8 @@
 // placeholder numbers below as real stats.
 
 export const problemSolvingStats = {
-  problemsSolved: null, // e.g. 250 — set once verified
-  accuracy: null, // e.g. '78%'
-  topics: ['Arrays', 'Strings', 'Hashing', 'Binary Search', 'Two Pointers', 'Sliding Window'],
-  profileLink: { url: '#', label: 'Coding Profile', isPlaceholder: true },
+  problemsSolved: '150 — set once verified', // e.g. 250 — set once verified
+  accuracy: '85%', // e.g. '78%'
+  topics: ['Arrays', 'Strings', 'Hashing', 'Binary Search', 'Two Pointers', 'Sliding Window, LinkedList, Sorting...'],
+  profileLink: { url: 'https://leetcode.com/u/Shivanshi_kapoor/', label: 'Coding Profile', isPlaceholder: false },
 };

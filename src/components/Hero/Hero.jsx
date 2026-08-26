@@ -77,7 +77,7 @@ export default function Hero() {
           <a href={links.linkedin.url} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-mint-400 transition-colors">
             <FiLinkedin size={20} />
           </a>
-          <a href={links.email} aria-label="Email" className="hover:text-mint-400 transition-colors">
+          <a href={links.email} target="_blank" rel="noopener noreferrer" aria-label="Email" className="hover:text-mint-400 transition-colors">
             <FiMail size={20} />
           </a>
         </div>

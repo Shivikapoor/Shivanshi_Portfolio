@@ -18,7 +18,7 @@ export default function Footer() {
           <a href={links.linkedin.url} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-white">
             <FiLinkedin size={18} />
           </a>
-          <a href={links.email} aria-label="Email" className="hover:text-white">
+          <a href={links.email} target="_blank" rel="noopener noreferrer" aria-label="Email" className="hover:text-white">
             <FiMail size={18} />
           </a>
           <a href={links.resumePdf.url} target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white">

@@ -40,10 +40,9 @@ export default function About() {
               </p>
               <div className="mt-6 pl-6 sm:pl-8 flex items-start gap-2">
                 <p className="text-ink-400 text-sm leading-relaxed">
-                  [PLACEHOLDER] A short paragraph of personal background — what drew her to software, what she
-                  cares about outside of code — goes here once supplied.
+                  I got into software because I love turning ideas into something real, interactive, and useful. I enjoy building things, solving problems, and figuring out why something broke at 2 AM 😭. Outside of code, I’m always curious, love learning new things, and enjoy exploring creative ideas and experiences that keep me inspired.
+
                 </p>
-                <PlaceholderBadge>fill in</PlaceholderBadge>
               </div>
             </div>
           </ScrollReveal>
