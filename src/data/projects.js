@@ -29,32 +29,41 @@ export const projects = [
       'Implemented JWT authentication, role-based access control (RBAC) and OTP-based account recovery.',
     ],
     links: {
-      live: { url: '#', isPlaceholder: true },
-      github: { url: '#', isPlaceholder: true },
+      live: { url: 'https://my-mento.vercel.app/', isPlaceholder: true },
+      github: { url: 'https://github.com/Shivikapoor/MyMento', isPlaceholder: true },
     },
-    image: { src: '/assets/projects/mymento-cover.png', isPlaceholder: true },
+    image: { src: '/assets/projects/mymento-cover.png', isPlaceholder: false },
     caseStudy: {
       overview:
         'MyMento is a scalable MERN platform built to connect people seeking mental-wellness support with listeners and therapists through anonymous, secure communication.',
-      problem:
-        '[PLACEHOLDER] Describe the specific gap this project addressed — e.g. accessibility or anonymity barriers to seeking mental-health support.',
-      solution:
-        '[PLACEHOLDER] Summarize, in your own words, how the platform architecture solves that problem end-to-end.',
-      keyFeatures: [
+      problem: [
+        'Many people struggle to find accessible and supportive spaces to discuss their personal or mental-health concerns.',
+        'Fear of judgment, social discomfort, or not knowing whom to approach can prevent people from openly sharing what they are going through or seeking appropriate guidance. This can leave them feeling isolated without an easy way to connect with supportive people or mentors.'],
+      solution: [
+        'Mymento addresses this by combining a supportive online community with mentor-based guidance in one platform. Users can share their experiences and concerns within the community, connect with others who may relate to their experiences, and seek personalized guidance from mentors.',
+        'The platform uses authentication, role-based access, and a centralized application architecture to provide a structured and secure experience from user registration through community interaction and mentor support.'
+      ],
+        keyFeatures: [
         'Real-time messaging between users and listeners/therapists (Socket.io)',
         'Appointment booking with conflict-aware scheduling',
         'JWT authentication with role-based access control',
         'OTP-based account recovery',
-        '[PLACEHOLDER] Add any additional modules worth highlighting',
+        'Counsellor dashboard for managing appointments',
+        'Client appointment history',
+        'Wellness tools for breathing, grounding, sleep, relaxation, and stress relief',
+        'Ratings and reviews for counselling sessions and email notifications for bookings and confirmations',
+        'Responsive React frontend with Node.js, Express, MongoDB, and Vite'
       ],
       architecture: ['React', 'REST API', 'Express / Node', 'MongoDB'],
       contribution:
-        '[PLACEHOLDER] Describe specifically what you personally built vs. what was team-built, if this was a group project.',
+        'My Personal Contributions, I primarily worked on the frontend development, API integration, authentication flows, deployment, and production debugging of Mymento. I built and refined the React-based user interface, integrated the frontend with backend APIs, and implemented user-facing flows such as login, registration, forgot password, and OTP verification. I also handled deployment and resolved production issues, including the CORS error between the deployed frontend and backend and the OTP delivery issue after deploying the backend on Render. Team Contributions Mymento was developed collaboratively. A teammate handled parts of the backend development, including some server-side functionality and API implementation. I worked with those APIs from the frontend and collaborated on integrating the different parts of the application into a functional product.Overall, my primary ownership was the frontend, frontend-backend integration, deployment, and production-level debugging, while the backend was developed collaboratively.',
       challenges: [
-        '[PLACEHOLDER] Name one or two real technical challenges you ran into (e.g. real-time sync, race conditions on booking).',
+        'CORS Error After Deployment: After deploying Mymento, the frontend and backend were hosted on different domains, causing API requests to be blocked by CORS restrictions even though everything worked locally.',
+        'OTP delivery issue: The Forgot Password flow worked locally, but after deploying the backend on Render, OTP emails were not being delivered correctly, making the password-reset flow unreliable in production.'
       ],
       solutions: [
-        '[PLACEHOLDER] Explain, in your own words, how each challenge above was resolved.',
+        'Resolving CORS: I investigated the browser console and network requests, identified the production origin issue, and updated the backend CORS configuration to allow requests from the deployed frontend.',
+        'Fixing OTP Delivery: I compared the local and production configurations, checked the email-service setup and environment variables, and adjusted the production configuration to ensure the OTP service could communicate correctly with the email provider.'
       ],
       screenshots: [{ src: '/assets/projects/mymento-1.png', isPlaceholder: true }],
     },

@@ -6,6 +6,14 @@ import ScrollReveal from '../components/react-bits/ScrollReveal';
 import PlaceholderBadge from '../components/common/PlaceholderBadge';
 import { getProjectBySlug, projects } from '../data/projects';
 
+const isPlaceholderText = (text) => {
+  if (Array.isArray(text)) {
+    return text.some((item) => typeof item === 'string' && item.startsWith('[PLACEHOLDER]'));
+  }
+
+  return typeof text === 'string' && text.startsWith('[PLACEHOLDER]');
+};
+
 export default function ProjectDetails() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
@@ -67,19 +75,29 @@ export default function ProjectDetails() {
 
         {/* Cover image */}
         <ScrollReveal delay={80}>
-          <div className="mt-12 aspect-video rounded-lg border border-ink-700 bg-ink-800/60 flex items-center justify-center overflow-hidden">
-            <div className="text-center px-6">
-              <p className="font-mono text-xs text-ink-500">cover screenshot</p>
-              <PlaceholderBadge>add real screenshot</PlaceholderBadge>
-            </div>
+          <div className="mt-12 aspect-video rounded-lg border border-ink-700 bg-ink-800/60 overflow-hidden">
+            {project.image?.src && !project.image.isPlaceholder ? (
+              <img
+                src={project.image.src}
+                alt={`${project.name} cover screenshot`}
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <div className="flex h-full items-center justify-center text-center px-6">
+                <div>
+                  <p className="font-mono text-xs text-ink-500">cover screenshot</p>
+                  <PlaceholderBadge>add real screenshot</PlaceholderBadge>
+                </div>
+              </div>
+            )}
           </div>
         </ScrollReveal>
 
         <div className="mt-16 grid lg:grid-cols-[1fr_320px] gap-14">
           <div className="space-y-14">
             <Section title="Overview" text={cs.overview} />
-            <Section title="Problem" text={cs.problem} isPlaceholder={cs.problem.startsWith('[PLACEHOLDER]')} />
-            <Section title="Solution" text={cs.solution} isPlaceholder={cs.solution.startsWith('[PLACEHOLDER]')} />
+            <Section title="Problem" text={cs.problem} isPlaceholder={isPlaceholderText(cs.problem)} />
+            <Section title="Solution" text={cs.solution} isPlaceholder={isPlaceholderText(cs.solution)} />
 
             <div>
               <h2 className="font-display text-xl font-semibold text-ink-100 mb-4">Key Features</h2>
@@ -114,7 +132,7 @@ export default function ProjectDetails() {
               </div>
             </div>
 
-            <Section title="My Contribution" text={cs.contribution} isPlaceholder={cs.contribution.startsWith('[PLACEHOLDER]')} />
+            <Section title="My Contribution" text={cs.contribution} isPlaceholder={isPlaceholderText(cs.contribution)} />
 
             <div>
               <h2 className="font-display text-xl font-semibold text-ink-100 mb-4">Challenges</h2>
@@ -180,13 +198,21 @@ export default function ProjectDetails() {
 }
 
 function Section({ title, text, isPlaceholder }) {
+  const items = Array.isArray(text) ? text : [text];
+
   return (
     <div>
       <div className="flex items-center gap-2 mb-3">
         <h2 className="font-display text-xl font-semibold text-ink-100">{title}</h2>
         {isPlaceholder && <PlaceholderBadge>fill in</PlaceholderBadge>}
       </div>
-      <p className="body-copy">{text}</p>
+      <div className="space-y-3">
+        {items.map((item, index) => (
+          <p key={`${title}-${index}`} className="body-copy">
+            {item}
+          </p>
+        ))}
+      </div>
     </div>
   );
 }

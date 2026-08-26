@@ -16,16 +16,28 @@ export default function ProjectCardHorizontal({ project }) {
         {/* Colored visual panel — stylized placeholder until real screenshots are supplied */}
         <div
           className="relative h-48 md:h-full min-h-[220px] flex items-center justify-center overflow-hidden"
-          style={{
-            backgroundColor: panelColor,
-            backgroundImage:
-              'linear-gradient(rgba(16,32,29,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16,32,29,0.08) 1px, transparent 1px)',
-            backgroundSize: '24px 24px',
-          }}
+          style={
+            project.image?.src && !project.image.isPlaceholder
+              ? undefined
+              : {
+                  backgroundColor: panelColor,
+                  backgroundImage:
+                    'linear-gradient(rgba(16,32,29,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(16,32,29,0.08) 1px, transparent 1px)',
+                  backgroundSize: '24px 24px',
+                }
+          }
         >
-          <span className="font-mono text-xs text-ink-900/70 bg-white/50 rounded-full px-3 py-1">
-            screenshot placeholder
-          </span>
+          {project.image?.src && !project.image.isPlaceholder ? (
+            <img
+              src={project.image.src}
+              alt={`${project.name} cover screenshot`}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <span className="font-mono text-xs text-ink-900/70 bg-white/50 rounded-full px-3 py-1">
+              screenshot placeholder
+            </span>
+          )}
         </div>
 
         <div className="p-6 sm:p-8">
