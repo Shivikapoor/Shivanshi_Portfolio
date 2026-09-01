@@ -43,7 +43,7 @@ export const projects = [
         'Mymento addresses this by combining a supportive online community with mentor-based guidance in one platform. Users can share their experiences and concerns within the community, connect with others who may relate to their experiences, and seek personalized guidance from mentors.',
         'The platform uses authentication, role-based access, and a centralized application architecture to provide a structured and secure experience from user registration through community interaction and mentor support.'
       ],
-        keyFeatures: [
+      keyFeatures: [
         'Real-time messaging between users and listeners/therapists (Socket.io)',
         'Appointment booking with conflict-aware scheduling',
         'JWT authentication with role-based access control',
@@ -124,24 +124,51 @@ export const projects = [
       'Generated recommendations capable of reducing electricity costs by 15–30%.',
     ],
     links: {
-      live: { url: '#', isPlaceholder: true },
-      github: { url: '#', isPlaceholder: true },
+      live: { url: 'https://smartgrid-app.onrender.com/', isPlaceholder: true },
+      github: { url: 'https://github.com/Shivikapoor/SmartGrid-App', isPlaceholder: true },
     },
     image: { src: '/assets/projects/smart-grid-cover.png', isPlaceholder: true },
     caseStudy: {
       overview:
         'An ML-powered application that forecasts household/grid electricity usage and surfaces cost-saving recommendations.',
-      problem: '[PLACEHOLDER] Describe the forecasting or cost problem this project addresses.',
-      solution: '[PLACEHOLDER] Summarize the modeling and application approach in your own words.',
+      problem: [
+        "People usually see their electricity usage only after consumption has already happened, typically when they receive their monthly bill.",
+        "Users don't know which appliances are contributing most to their overall electricity consumption.",
+        "It is difficult to estimate how much a new appliance will increase monthly electricity consumption.",
+        "Electricity usage data can be difficult to interpret because it is often presented as raw meter readings.",
+        "Users don't have an easy way to turn historical consumption data into understandable monthly insights.",
+        "Without clear consumption visibility, users have fewer opportunities to identify and reduce unnecessary energy usage.",
+        "The project addresses these challenges at the household energy-management level.",
+        "Instead of simply displaying raw electricity data, the application processes historical household power-consumption data into meaningful monthly usage information.",
+        "The application also estimates future electricity consumption and cost based on appliance usage.",
+        "The UCI Household Electric Power Consumption dataset is used as the underlying historical data source."
+      ],
+      solution: 'SmartGrid converts raw household electricity-consumption data into understandable monthly usage insights and provides an appliance impact and bill estimation system. Users can enter an appliances power consumption, daily usage hours, number of days and electricity rate to estimate its additional energy consumption and cost. The application also processes historical consumption data and presents it in a more meaningful form, allowing users to understand their usage instead of dealing with raw meter readings. The project is implemented as a Flask-based web application and deployed online.',
       keyFeatures: [
-        'Electricity usage forecasting model (92% accuracy)',
-        'Cost-saving recommendation engine',
-        '[PLACEHOLDER] Note the exact ML library/framework used (e.g. scikit-learn)',
+        "Historical household electricity consumption visualization",
+        "Appliance-wise energy consumption calculation",
+        "Electricity bill estimation based on appliance usage",
+        "Prediction of additional monthly consumption and cost",
+        "Machine Learning integration using Linear Regression",
+        "Automated processing of raw electricity consumption data",
+        "Flask REST APIs for data and prediction services",
+        "Interactive web-based interface",
+        "Deployed live application for real-world use"
       ],
       architecture: ['React / Web Frontend', 'REST API', 'Python ML Service', 'Trained Model'],
-      contribution: '[PLACEHOLDER] Describe what you personally built, including data prep, model training, or the web app layer.',
-      challenges: ['[PLACEHOLDER] Note a real modeling or data-quality challenge you faced.'],
-      solutions: ['[PLACEHOLDER] Explain how it was resolved.'],
+      contribution: 'I developed the project end-to-end, including the data-processing pipeline, machine-learning component, Flask backend, APIs and frontend integration. I worked with the household electricity dataset, cleaned and transformed the raw data, converted the high-frequency readings into meaningful hourly/monthly consumption data, processed different consumption zones, trained and serialized the Linear Regression model using Joblib, built the Flask APIs for consumption and bill calculations, integrated the frontend with the backend, and deployed the complete application',
+      challenges: ["Raw dataset was difficult to work with: The electricity dataset contained high-frequency readings, missing values, and separate date/time fields, making it unsuitable for direct use.",
+        "Handling time-series data: Processing minute-level electricity readings directly would be inefficient and difficult to visualize meaningfully.",
+        "Preparing data for ML: Raw electricity measurements had to be converted into appropriate numerical features and consumption units before training the model.",
+        "Integrating the trained model with Flask: The ML model had to be saved and loaded by the backend so it could be used by the deployed application.",
+        "Making technical data understandable: Raw kWh and meter readings needed to be converted into practical information such as appliance impact and estimated electricity bills."
+      ],
+      solutions: ["Data cleaning: Used Pandas to handle missing and invalid values, convert columns to numerical data, and combine date and time into a proper timestamp.",
+        "Data aggregation: Resampled raw readings from minute → hourly → monthly consumption to reduce data size and create meaningful usage patterns.",
+        "Feature preparation: Processed different consumption zones and converted measurements into kWh-based features suitable for the ML pipeline.",
+        "Model integration: Trained the Linear Regression model separately, serialized it using Joblib (model.pkl), and loaded it inside the Flask application for runtime predictions.",
+        "User-friendly calculations: Converted technical energy measurements into additional kWh consumption, appliance-wise impact, and estimated electricity cost so users can directly understand the financial effect of appliance usage."
+      ],
       screenshots: [{ src: '/assets/projects/smart-grid-1.png', isPlaceholder: true }],
     },
   },
