@@ -92,19 +92,33 @@ export const projects = [
       overview:
         'Virtual CA is an in-progress AI financial assistant that uses large language models to help users with tax planning and personalized financial guidance.',
       problem:
-        '[PLACEHOLDER] Describe the problem this tool solves for its users (e.g. manual tax planning is slow / opaque / expensive).',
+        'Many working professionals in India struggle with tax planning because tax rules are complex, constantly changing, and difficult to interpret without expert guidance. Individuals often face uncertainty when comparing old and new tax regimes, understanding deductions, or reviewing salary slips and financial documents. This leads to confusion, missed savings opportunities, and a reliance on fragmented information from multiple sources. Virtual CA addresses this gap by making financial guidance more accessible, practical, and personalized for everyday users',
       solution:
-        '[PLACEHOLDER] Summarize how the MERN + LLM architecture addresses that problem.',
+        'This project solves that problem by combining an AI-powered financial assistant with practical tools for tax analysis and document processing. Users can ask tax-related questions in natural language, compare tax regimes, calculate estimated liabilities, and upload financial documents such as salary slips or invoices for review. The system uses a retrieval-augmented knowledge base and conversational AI to provide more context-aware and relevant answers based on Indian tax guidance. By bringing these capabilities into a single secure dashboard, the software reduces complexity and helps users make more informed financial decisions.',
       keyFeatures: [
-        'LLM-driven tax planning and recommendation engine',
-        'Secure REST APIs for financial data handling',
-        'JWT-based authentication',
-        '[PLACEHOLDER] Add any RAG / document-ingestion features once implemented',
+        "AI-powered tax assistant with conversational Q&A",
+        "Tax calculator for annual salary and deduction inputs",
+        "Old vs new tax regime comparison",
+        "Document upload support for salary slips, ITRs, and invoices",
+        "Secure user authentication and protected dashboard access",
+        "Responsive React interface for desktop and mobile use",
+        "Modular full-stack architecture with frontend, backend, and AI service separation",
+        "Financial dashboard with multiple tools in one place"
       ],
       architecture: ['React', 'Node / Express', 'AI Service', 'RAG / Vector DB', 'LLM'],
-      contribution: '[PLACEHOLDER] Describe your specific role and ownership on this project.',
-      challenges: ['[PLACEHOLDER] Note any real challenges encountered with LLM integration, data security, or accuracy.'],
-      solutions: ['[PLACEHOLDER] Explain how those challenges were or are being addressed.'],
+      contribution: 'I contributed to the end-to-end development of the platform by designing and implementing the user-facing experience, authentication flows, dashboard features, and API integrations. I built the front-end interface for the landing page, login/signup flow, and protected dashboard, while also creating the structure for the backend services and AI-driven functionalities. My role included connecting the user interface with tax calculation, chat, and document upload features, as well as ensuring the product felt responsive, modern, and usable for real-world financial tasks. I also focused on making the application scalable and organized so it can evolve into a complete financial assistant.',
+      challenges: [ "Integrating the frontend, backend, and AI service into a single workflow",
+    "Designing a user-friendly interface for financial data without overwhelming the user",
+    "Handling tax calculation logic and comparison between different regimes accurately",
+    "Managing document uploads and preparing for future AI-based analysis",
+    "Creating a secure and reliable authentication flow for protected user data"
+  ],
+      solutions: ["Structured the project into separate frontend, backend, and AI-service layers to keep the system modular and maintainable",
+    "Used a clean dashboard-based design with clear tabs and simple user actions so users can navigate financial tools easily",
+    "Implemented tax calculation flows with user inputs for salary and deductions, making the logic easy to extend and validate",
+    "Incorporated document upload endpoints and a reusable file-handling structure to support future parsing and analysis features",
+    "Used JWT-based authentication and protected routes to ensure the application follows a secure access pattern for user data"
+  ],
       screenshots: [{ src: '/assets/projects/virtual-ca-1.png', isPlaceholder: true }],
     },
   },
